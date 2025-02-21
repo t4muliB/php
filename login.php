@@ -8,6 +8,6 @@ foreach ($user as $row){
     if ($row['username'] == $_POST["name"] && $row['password'] == $_POST["pwd"]){
         echo "logged in";
 } else {
-    echo "password incorrect";
+    echo "wrong password";
 }
 }
