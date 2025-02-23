@@ -1,11 +1,14 @@
 <?php
 $dbh = new PDO('mysql:host=localhost;dbname=myphpwebsite', 'db_user', '$mySecret4150');
-$user = $dbh->query('SELECT * FROM `users`', PDO::FETCH_ASSOC);
+$records = $dbh->query('SELECT * FROM `users`', PDO::FETCH_ASSOC);
+$claimeduser = $_POST["name"];
+$claimedpassword = $_POST["pwd"];
 
-echo "<h1>Hello ".$_POST["name"]." your submitted password is:".$_POST["pwd"]." </h1>";
 
-foreach ($user as $claimeduser){
-    if ($claimeduser['username'] == $_POST["name"] && $claimeduser['password'] == $_POST["pwd"]){
+echo "<h1>Hello ".$claimeduser." your submitted password is:".$claimedpassword." </h1>";
+
+foreach ($records as $recorduser){
+    if ($recorduser['username'] == $claimeduser && $recorduser['password'] == $claimedpassword){
         echo "logged in";
     }
 }
