@@ -1,5 +1,5 @@
 <?php
-$dbh = new PDO('mysql:host=localhost;dbname=myphpwebsite', 'db_user', '$mySecret4150');
+$dbh = new PDO('mysql:host=localhost;dbname=myphpwebsite', 'db_users', '$mySecret4150');
 $records = $dbh->query('SELECT * FROM `users`', PDO::FETCH_ASSOC);
 $claimeduser = $_POST["name"];
 $claimedpassword = $_POST["pwd"];
