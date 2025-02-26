@@ -1,11 +1,15 @@
 <?php
 $dbh = new PDO('mysql:host=localhost;dbname=myphpwebsite', 'db_user', '$mySecret4150');
-$records = $dbh->query('SELECT * FROM `users`', PDO::FETCH_ASSOC);
-$_POST['name'] = $name;
-$_POST['pwd'] = $pass;
+// $records = $dbh->query('SELECT * FROM `users`', PDO::FETCH_ASSOC);
+$name = $_POST['name'];
+$pass = $_POST['pwd'];
+$credentials = [$name];
 
-foreach ($name as $USERNAME && $pass as $PASSWORD){
-    ('INSERT INTO `users`("username","password") VALUES ($USERNAME,$PASSWORD)');
+foreach ($credentials as $records){
+    if($records = $dbh->prepare("INSERT INTO `users`(`username`,`password`) VALUES ($name,$pass)")){
+        printf("%s=>%s",$name,$pass);
+    }
+    // echo "<h1>Hello ".$name." your submitted password is:".$pass." </h1>";
 }
 
 
