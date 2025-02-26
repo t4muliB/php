@@ -1,7 +1,36 @@
 <?php
-$dbh = new PDO('mysql:host=localhost;dbname=myphpwebsite','db_users','$mySecret4150');
+$dbh = new PDO('mysql:host=localhost;dbname=myphpwebsite', 'db_user', '$mySecret4150');
+$records = $dbh->query('SELECT * FROM `users`', PDO::FETCH_ASSOC);
+$_POST['name'] = $name;
+$_POST['pwd'] = $pass;
 
-foreach ($result as $entry){
-    if ($entry );
+foreach ($name as $USERNAME && $pass as $PASSWORD){
+    ('INSERT INTO `users`("username","password") VALUES ($USERNAME,$PASSWORD)');
 }
-$result = $dbh->query('INSERT INTO `users`("Username","Password") VALUES ($username,$password)');
+
+
+
+
+
+// $result = $dbh->query('SELECT * FROM `users`', PDO::FETCH_ASSOC);
+
+// foreach ($result as $entry){
+//     if($entry == $_POST['username']){
+//         echo "Username exists,please try again";
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// $result = $dbh->query('INSERT INTO `book`("Username","Password") VALUES ($username,$password)');
